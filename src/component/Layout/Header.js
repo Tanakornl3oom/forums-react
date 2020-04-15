@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 
+import './Header.css';
+
 function Header() {
-    return <Fragment> Header </Fragment>;
+    return <div className={'header'}> Header </div>;
 }
 
 export default Header;

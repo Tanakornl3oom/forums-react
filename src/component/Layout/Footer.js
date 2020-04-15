@@ -4,13 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Footer() {
     const useStyles = makeStyles(theme => ({
-        footer: {
-            position: 'absolute',
-            bottom: '0',
-            backgroundColor: theme.palette.background.paper,
-            padding: theme.spacing(6),
-            width: '100%'
-        }
+        footer: { paddingTop: '25px', paddingBottom: '25px' }
     }));
 
     function Copyright() {

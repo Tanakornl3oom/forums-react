@@ -8,6 +8,7 @@ function Forums() {
             <CardForums />
             <CardForums />
             <CardForums />
+            <CardForums />
         </Fragment>
     );
 }
