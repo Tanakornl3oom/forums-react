@@ -4,7 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Footer() {
     const useStyles = makeStyles(theme => ({
-        footer: { paddingTop: '25px', paddingBottom: '25px' }
+        footer: {
+            paddingTop: '25px',
+            paddingBottom: '25px',
+            background: '#1abc9c'
+        }
     }));
 
     function Copyright() {
