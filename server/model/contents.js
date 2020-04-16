@@ -5,7 +5,15 @@ const { Schema } = mongoose;
 const contentSchema = new Schema({
     title: String,
     content: String,
-    tags: Array
+    tags: [
+        {
+            type: String
+        }
+    ],
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 });
 
 const model = mongoose.model('content', contentSchema);

@@ -8,83 +8,47 @@ import {
     List,
     ListItemText,
     Divider,
-    ListItem
+    ListItem,
+    Chip
 } from '@material-ui/core';
 
-function CardForums() {
+function CardForums(props) {
     const wrapper = React.useRef();
+
+    const renderChip = () => {
+        return props.tags.map((tag, id) => {
+            return <Chip key={id} size="small" label={tag} />;
+        });
+    };
+
     return (
         <Grid container spacing={3}>
             <Grid item xs />
             <Grid item xs={12}>
-                <ExpansionPanel square ref={wrapper}>
+                <ExpansionPanel
+                    square
+                    ref={wrapper}
+                    style={{ borderTop: '3px solid  #1abc9c' }}
+                >
                     <ExpansionPanelSummary
                         aria-controls="panel1d-content"
                         id="panel1d-header"
                     >
-                        <Typography>Test Forums</Typography>
+                        <Typography>{props.title}</Typography>
+                        <Typography component="span">{renderChip()}</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <List>
                             <Grid container spacing={2}>
-                                <Grid item xs={6}>
+                                <Grid item></Grid>
+                                <Grid item xs={8}>
                                     <Typography variant="body1">
-                                        {'Forum #1'}
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={3}>
-                                    <Typography variant="body1">
-                                        {' middle '}
+                                        {props.content}
                                     </Typography>
                                 </Grid>
 
-                                <Grid item xs={3}>
-                                    <Typography variant="body1">
-                                        {' right '}
-                                    </Typography>
-                                </Grid>
+                                <Grid item></Grid>
                             </Grid>
-
-                            <Divider component="li" />
-                            <ListItem alignItems="flex-start">
-                                <ListItemText
-                                    primary="Brunch this weekend?"
-                                    secondary={
-                                        <React.Fragment>
-                                            <Typography
-                                                component="span"
-                                                variant="body2"
-                                                color="textPrimary"
-                                            >
-                                                Ali Connors
-                                            </Typography>
-                                            {
-                                                " — I'll be in your neighborhood doing errands this…"
-                                            }
-                                        </React.Fragment>
-                                    }
-                                />
-                            </ListItem>
-                            <Divider component="li" />
-                            <ListItem alignItems="flex-start">
-                                <ListItemText
-                                    primary="Brunch this weekend?"
-                                    secondary={
-                                        <React.Fragment>
-                                            <Typography
-                                                component="span"
-                                                variant="body2"
-                                                color="textPrimary"
-                                            >
-                                                Ali Connors
-                                            </Typography>
-                                            {
-                                                " — I'll be in your neighborhood doing errands this…"
-                                            }
-                                        </React.Fragment>
-                                    }
-                                />
-                            </ListItem>
                         </List>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>

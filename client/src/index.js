@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './container/App/App';
 import Forums from './container/Forums/Forums';
+import ManageForum from './container/Forums/ManageForum';
 import NotFound from './container/NotFound/NotFound';
 import Layout from './container/Layout/Layout';
 import * as serviceWorker from './serviceWorker';
@@ -22,6 +23,7 @@ ReactDOM.render(
                 </Route> */}
                 <Route path="/test" component={App} />
                 <Layout path="/forums" component={Forums} />
+                <Layout path="/manage-forum" component={ManageForum} />
                 <Route component={NotFound} />
             </Switch>
         </Router>
