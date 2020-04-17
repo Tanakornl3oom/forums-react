@@ -19,7 +19,15 @@ import './CardForums.scss';
 function CardForums(props) {
     const renderChip = () => {
         return props.tags.map((tag, id) => {
-            return <Chip key={id} size="small" label={tag} />;
+            const color = ['default', 'primary', 'secondary'];
+            return (
+                <Chip
+                    key={id}
+                    size="small"
+                    label={tag}
+                    color={color[Math.floor(Math.random() * 3)]}
+                />
+            );
         });
     };
 

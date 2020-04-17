@@ -6,17 +6,16 @@ function Forum(props) {
     const [forum, setForum] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        fetchContent();
-    }, []);
-
-    const fetchContent = async () => {
-        const { data } = await CoreService.getContentById(
-            props.match.params.id
-        );
+    const fetchContent = async id => {
+        const { data } = await CoreService.getContentById(id);
         setForum(data.data);
         setIsLoading(false);
     };
+
+    useEffect(() => {
+        const { id } = props.match.params;
+        fetchContent(id);
+    }, [props.match.params]);
 
     return (
         <Fragment>
