@@ -21,12 +21,14 @@ function Forums() {
             if (data.isActive)
                 return (
                     <CardForums
+                        id={data._id}
                         key={index}
                         title={data.title}
                         content={data.content}
                         tags={data.tags}
                     />
                 );
+            return <Fragment key={index} />;
         });
     };
 

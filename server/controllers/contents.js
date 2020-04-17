@@ -17,3 +17,11 @@ export const saveContent = async ({ title, content, tags }) => {
         throw error;
     }
 };
+
+export const getContentById = async id => {
+    try {
+        return await Content.findOne({ _id: id });
+    } catch (error) {
+        throw error;
+    }
+};

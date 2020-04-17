@@ -1,13 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-import { getAllContents, saveContent } from '../../controllers/contents';
+import {
+    getAllContents,
+    saveContent,
+    getContentById
+} from '../../controllers/contents';
 
 import { validateBodyCreateContent } from '../../utils/middleware/contents';
 import { callbackData, callbackStatus } from '../../utils/response/response';
 /* GET home page. */
 router.get('/', async function(req, res, next) {
     const contents = await getAllContents();
+    res.status(200).send(callbackData({ status: 200, data: contents }));
+});
+
+router.get('/:id', async function(req, res, next) {
+    const { id } = req.params;
+    const contents = await getContentById(id);
     res.status(200).send(callbackData({ status: 200, data: contents }));
 });
 

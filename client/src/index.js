@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './container/App/App';
 import Forums from './container/Forums/Forums';
+import Forum from './container/Forums/Forum';
 import ManageForum from './container/Forums/ManageForum';
 import NotFound from './container/NotFound/NotFound';
 import Layout from './container/Layout/Layout';
@@ -23,6 +24,7 @@ ReactDOM.render(
                 </Route> */}
                 <Route path="/test" component={App} />
                 <Layout path="/forums" component={Forums} />
+                <Layout path="/forum/:id" component={Forum} />
                 <Layout path="/manage-forum" component={ManageForum} />
                 <Route component={NotFound} />
             </Switch>

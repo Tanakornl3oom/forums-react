@@ -32,7 +32,8 @@ function ManageForum() {
     const handdleOnKeyDown = ({ key }) => {
         if (key === 'Enter') {
             let tags = forum.tags || [];
-            tags.push(tag);
+            if (!(tags.indexOf(tag) > -1)) tags.push(tag);
+            else alert('same tag');
 
             setForum({ ...forum, tags });
             setTag('');

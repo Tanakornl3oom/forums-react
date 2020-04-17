@@ -11,10 +11,12 @@ import {
     ListItem,
     Chip
 } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { NavLink } from 'react-router-dom';
+
+import './CardForums.scss';
 
 function CardForums(props) {
-    const wrapper = React.useRef();
-
     const renderChip = () => {
         return props.tags.map((tag, id) => {
             return <Chip key={id} size="small" label={tag} />;
@@ -23,15 +25,14 @@ function CardForums(props) {
 
     return (
         <Grid container spacing={3}>
-            <Grid item xs />
             <Grid item xs={12}>
                 <ExpansionPanel
                     square
-                    ref={wrapper}
                     style={{ borderTop: '3px solid  #1abc9c' }}
                 >
                     <ExpansionPanelSummary
                         aria-controls="panel1d-content"
+                        expandIcon={<ExpandMoreIcon />}
                         id="panel1d-header"
                     >
                         <Typography>{props.title}</Typography>
@@ -46,14 +47,18 @@ function CardForums(props) {
                                         {props.content}
                                     </Typography>
                                 </Grid>
-
-                                <Grid item></Grid>
+                                <Grid item xs={1}></Grid>
                             </Grid>
+                            <NavLink
+                                className={'detail'}
+                                to={`forum/${props.id}`}
+                            >
+                                See more details...
+                            </NavLink>
                         </List>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </Grid>
-            <Grid item xs />
         </Grid>
     );
 }
